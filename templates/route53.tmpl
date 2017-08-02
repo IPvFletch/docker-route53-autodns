@@ -1,0 +1,4 @@
+#!/bin/bash
+{{ range $hostname, $containers := groupByMulti $ "Env.HOSTNAME" "," }}
+python /bin/route53-autodns.py {{ $hostname }}
+{{ end }}
